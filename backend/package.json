@@ -1,0 +1,37 @@
+{
+  "name": "elitecare-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "EliteCare Health Portal - Backend API (Express + PostgreSQL)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "db:init": "node sql/initDb.js",
+    "db:migrate": "node sql/migrate.js",
+    "db:status": "node sql/migrate.js --status",
+    "db:check": "node scripts/check-schema.js",
+    "test:smoke": "node scripts/smoke-test.js",
+    "test:smoke:full": "node scripts/smoke-test.js --write"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.7.0",
+    "express-validator": "^7.2.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.4.0",
+    "node-cron": "^4.6.0",
+    "pg": "^8.13.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

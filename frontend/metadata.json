@@ -1,0 +1,8 @@
+{
+  "name": "Remix: EliteCare",
+  "description": "Modern SaaS Healthcare Landing Page and Patient Portal powered by AI clinical diagnostics",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Inter/Outfit carry no Devanagari glyphs, so Hindi and Marathi text falls
+     through the rest of the stack. The families below are LOCAL font names
+     only (Nirmala UI ships with Windows, Mangal with older Windows, Noto Sans
+     Devanagari is commonly installed) — adding them costs no network request
+     and changes nothing for Latin text, which still renders in Inter. */
+  --font-sans: "Inter", ui-sans-serif, system-ui, "Nirmala UI", "Mangal", "Noto Sans Devanagari", sans-serif;
+  --font-display: "Outfit", "Nirmala UI", "Mangal", "Noto Sans Devanagari", sans-serif;
+
+  /* Vibrant Light Green / Emerald Theme - Clean, clinical, modern and lively */
+  --color-green-50: #f0fdf4;
+  --color-green-100: #dcfce7;
+  --color-green-200: #bbf7d0;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-green-700: #15803d;
+  --color-green-800: #166534;
+  --color-green-900: #14532d;
+  --color-green-150: #bbf7d080;
+
+  --color-emerald-50: #f0fdf4;
+  --color-emerald-100: #dcfce7;
+  --color-emerald-500: #22c55e;
+  --color-emerald-600: #16a34a;
+  --color-emerald-700: #15803d;
+
+  --color-slate-50: #f8fafc;    /* Clean off-white slate */
+  --color-slate-100: #f1f5f9;   /* Soft slate gray */
+  --color-slate-200: #e2e8f0;   /* Muted gray */
+  --color-slate-300: #cbd5e1;   /* Border gray */
+  --color-slate-400: #94a3b8;   /* Medium slate text */
+  --color-slate-500: #64748b;   /* Regular slate text */
+  --color-slate-600: #475569;   /* Dark slate */
+  --color-slate-700: #334155;   /* Very dark slate */
+  --color-slate-800: #1e293b;   /* Charcoal ground */
+  --color-slate-900: #0f172a;   /* Pitch obsidian */
+  --color-slate-950: #020617;   /* Deepest dark */
+}body{
+  /* Local-only Devanagari fallbacks — see the note on --font-sans above. */
+  font-family:'Inter',"Nirmala UI","Mangal","Noto Sans Devanagari",sans-serif;
+  background:#f6f8fb;
+}
+.content-area{
+  padding:30px;
+}
+
+.dashboard-card,
+.stats-card{
+  background:#fff;
+  border-radius:20px;
+  border:1px solid #edf0f5;
+  box-shadow:0 4px 20px rgba(0,0,0,.04);
+}
+.sidebar{
+  width:350px;
+  background:#fff;
+  border-right:1px solid #eef2f7;
+}
+.active-menu{
+  background:#0c8a63;
+  color:#fff !important;
+  border-radius:14px;
+}
+.stats-card{
+  min-height:140px;
+  padding:25px;
+}
+.top-navbar{
+  height:90px;
+  background:#fff;
+  border-bottom:1px solid #eef2f7;
+}
+.search-box input{
+  width:340px;
+  height:46px;
+  border-radius:30px;
+  background:#f5f7fb;
+}
+.dashboard-header h1{
+  font-size:42px;
+  font-weight:800;
+}
+.whatsapp-btn{
+  position:fixed;
+  left:25px;
+  bottom:25px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25d366;
+}
+.footer-section{
+  background:linear-gradient(
+  90deg,
+  #032f22,
+  #043a29
+  );
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-slate-50);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-200);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-slate-300);
+}
+
+
+/* =====================
+SMART SERVICES - 3D FLIP CARDS
+===================== */
+.flip-scene{
+  position:relative;
+  perspective:1600px;
+  animation:flipFloat 5.5s ease-in-out infinite;
+}
+.flip-scene:hover{
+  animation-play-state:paused;
+}
+@keyframes flipFloat{
+  0%,100%{ transform:translateY(0) rotateX(0deg); }
+  50%{ transform:translateY(-6px) rotateX(3deg); }
+}
+.flip-tilt{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:transform .18s ease-out;
+  cursor:pointer;
+  outline:none;
+  border-radius:16px;
+}
+.flip-tilt:active{
+  transform:scale(.96) !important;
+}
+.flip-tilt:focus-visible{
+  box-shadow:0 0 0 3px rgba(16,185,129,.5);
+}
+.flip-card{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.flip-face{
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  border-radius:16px;
+  display:flex;
+  flex-direction:column;
+}
+.flip-face-back{
+  transform:rotateY(180deg);
+}
+.flip-scene:hover .flip-card{
+  box-shadow:0 26px 55px -18px rgba(4,120,87,.5);
+}
+
+
