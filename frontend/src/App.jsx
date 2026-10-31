@@ -797,8 +797,8 @@ export default function App() {
             /* A render-time throw in any view would otherwise blank the whole
                app. The boundary changes nothing when nothing throws. */
             <ErrorBoundary key={activeTab}>
-            /* One keyed motion.div per activeTab: wraps (does not restructure)
-               the existing conditional blocks so switching views cross-fades. */
+            {/* One keyed motion.div per activeTab: wraps (does not restructure)
+               the existing conditional blocks so switching views cross-fades. */}
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={activeTab}
