@@ -1,3 +1,6 @@
+const { Pool } = require("pg");
+require("dotenv").config();
+
 const pool = new Pool({
   host: process.env.DB_HOST || "127.0.0.1",
   port: process.env.DB_PORT || 5432,
@@ -7,6 +10,7 @@ const pool = new Pool({
   ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : false,
   max: 10,
 });
+
 /**
  * Compatibility shim so the existing controllers (written against
  * mysql2's `pool.query(sql, params)` -> `[rows]` / `[result]` API)
